@@ -475,7 +475,7 @@ function waitForGreenDeployment {
 
 function runTask {
   echo "Run task: $NEW_TASKDEF";
-  $AWS_ECS run-task --cluster $CLUSTER --task-definition $NEW_TASKDEF > /dev/null
+  $AWS_ECS run-task --cluster $CLUSTER --task-definition $NEW_TASKDEF --network-configuration $NETWORK_CONFIGURATION> /dev/null
 }
 
 ######################################################
@@ -566,6 +566,10 @@ if [ "$BASH_SOURCE" == "$0" ]; then
                 ;;
             --max-definitions)
                 MAX_DEFINITIONS="$2"
+                shift
+                ;;
+            --network-configuration)
+                NETWORK_CONFIGURATION="$2"
                 shift
                 ;;
             --enable-rollback)

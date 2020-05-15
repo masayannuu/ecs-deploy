@@ -107,6 +107,12 @@ inputs:
   verbose:
     description: "Verbose output"
     required: false
+  network_configuration_cmd:
+    description: "--network-configuration"
+    required: false
+  network_configuration:
+    description: "Network COnfiguration for run task"
+    required: false
 outputs:
   status:
     description: "status"
@@ -157,4 +163,6 @@ runs:
       "${{ inputs.max_definitions_cmd }}",
       "${{ inputs.max_definitions }}",
       "${{ inputs.run_task_cmd }}",
+      "${{ inputs.network_configuration_cmd }}",
+      "${{ inputs.network_configuration }}",
     ]
